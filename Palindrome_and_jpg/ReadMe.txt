@@ -1,0 +1,2 @@
+For some bizzare reason not every compile attempt was succesful probably due to file structure.
+That's the reason I uploaded .jar file of this program and that is "Very simple program converted to jar.jar".
