@@ -19,8 +19,7 @@ public class Gui
                 + "&emsp;Dane zostały pobrane z portalu pogoda.interia.pl</b><br>"
                 + "<br><br><br>&emsp;Aby zamknąć aplikację należy wpisać w konsoli dowolny znak z poza zakresu 1-4 "
                 + "lub wcisnąć guzik.</html>");
-
-
+        
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setVerticalTextPosition(JLabel.TOP);
         label.setForeground(new Color(0,0,0));
