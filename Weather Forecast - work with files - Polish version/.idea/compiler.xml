@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="PracaDyplomowa" />
         <module name="WeatherForecast" />
+        <module name="Weather Forecast - work with files - Polish version" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="WF - GTB" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
