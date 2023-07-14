@@ -1,6 +1,7 @@
 package core;
 
 import java.util.Scanner;
+import gui.Gui;
 
 public class Main
 {
@@ -11,6 +12,7 @@ public class Main
         while(flag)
         {
             new InformHowBehave();
+            new Gui();
             int choice = 0;
             Scanner scan = new Scanner(System.in);
             try
