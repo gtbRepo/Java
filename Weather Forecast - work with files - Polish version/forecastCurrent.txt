@@ -4,3 +4,5 @@ Thu Feb 17 19:20:29 CET 2022 7°C 54 km/h
 Fri Jul 14 14:31:49 CEST 2023 26°C 6 km/h
 Fri Jul 14 14:32:01 CEST 2023 26°C 6 km/h
 Fri Jul 14 14:46:47 CEST 2023 26°C 6 km/h
+Fri Jul 28 18:45:15 CEST 2023 24°C 22 km/h
+Fri Jul 28 18:55:41 CEST 2023 24°C 24 km/h

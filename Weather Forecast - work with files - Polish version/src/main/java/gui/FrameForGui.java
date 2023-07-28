@@ -19,7 +19,7 @@ public class FrameForGui extends JFrame
         // ImageIcon image = new ImageIcon(""); // w cudzysłowie nazwa nowej ikony
         // frame.setIconImage(image.getImage());
         // frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-        this.getContentPane().setBackground(new Color(255, 255, 255)); //na razie biały
+        this.getContentPane().setBackground(new Color(255, 255, 255)); // na razie biały
 
         //TODO Kod poniżej prawdopodobnie powinien być w Gui
         JLabel infoText = new JLabel("Program wyłącza tylko przeznaczony do tego przycisk."

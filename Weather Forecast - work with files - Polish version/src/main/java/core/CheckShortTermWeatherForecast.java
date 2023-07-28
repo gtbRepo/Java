@@ -51,11 +51,15 @@ public class CheckShortTermWeatherForecast
                         + amountOfRainfall.get(counter).text() + " ";
 
                 new WriteDataToFile(shortForecastName, rawForecastData, true);
+
+                Thread.sleep(7000); //TODO change position of this method
             }
         }
         catch(IOException e)
-        {   //Przechwytywanie też powinno wypisywać mój komunikat, a nie standatdową odp
-            e.printStackTrace();        // Jeśli nie bedzie połączenia z internetem
+        {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

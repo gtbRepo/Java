@@ -20,7 +20,7 @@ public class CheckCurrentWeather
 {
     public CheckCurrentWeather()
     {
-        System.out.println("Proszę czekać trwa wczytywanie obecnych danych meteorologicznych.");
+        System.out.println("Proszę czekać trwa wczytywanie obecnych danych meteorologicznych.\n");
         try
         {
             Document currentWeatherDocumentInteria = Jsoup.
@@ -40,11 +40,14 @@ public class CheckCurrentWeather
             String rawForecastData = nowDate + " " + temperature.get(0).text() + " "
                     + windAverageSpeed.get(2).text();
 
-            new WriteDataToFile(shortForecastName, rawForecastData, true);//*/
+            new WriteDataToFile(shortForecastName, rawForecastData, true);
+            Thread.sleep(5000);
         }
         catch(IOException e)
-        {           //Przechwytywanie też powinno wypisywać mój komunikat, a nie standatdową odp
-            e.printStackTrace();        // Jeśli nie bedzie połączenia z internetem
+        {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e); // TODO add my message
         }
     }
 }

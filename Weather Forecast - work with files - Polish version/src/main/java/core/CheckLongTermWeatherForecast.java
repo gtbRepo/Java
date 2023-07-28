@@ -60,11 +60,15 @@ public class CheckLongTermWeatherForecast
                         + sunyHours.get(counter).text();
 
                 new WriteDataToFile(longForecastName, rawForecastData, true);
+
+                Thread.sleep(7000); //TODO Add sleep.java class with sleep class and try catch statement
             }
         }
         catch(IOException e)
-        {           //Przechwytywanie też powinno wypisywać mój komunikat, a nie standatdową odp
-            e.printStackTrace();        // Jeśli nie bedzie połączenia z internetem
+        {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

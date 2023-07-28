@@ -3,6 +3,8 @@ package core;
 import java.util.Scanner;
 import gui.Gui;
 
+//TODO upgrade gui;
+
 public class Main
 {
     public static void main(String[] args)
@@ -12,7 +14,6 @@ public class Main
         while(flag)
         {
             new InformHowBehave();
-            new Gui();
             int choice = 0;
             Scanner scan = new Scanner(System.in);
             try
@@ -38,7 +39,9 @@ public class Main
                     new CheckCurrentWeather();
                     new CheckShortTermWeatherForecast();
                     new CheckLongTermWeatherForecast();
-                    break;
+                case 5:
+                    new Gui();
+                    break; // TODO Check if this break statement is needed
                 default:
                     flag = false;
                     break;
