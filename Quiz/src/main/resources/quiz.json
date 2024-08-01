@@ -1,0 +1,26 @@
+[
+  {
+    "question": "In which year Java was created?",
+    "a": 1986,
+    "b": 1991,
+    "c": 1995,
+    "d": 2000,
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Who created Java?",
+    "a": "Bill Gates",
+    "b": "Steve Jobs",
+    "c": "James Gosling",
+    "d": "Dennis Ritchie",
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Paris Olympic Games were held in twenty-first century. In which year?",
+    "a": "2000",
+    "b": "2004",
+    "c": "2024",
+    "d": "2016",
+    "correctAnswer": "c"
+  }
+]
