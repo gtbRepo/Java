@@ -10,10 +10,10 @@ public class Main
     public static void main(String[] args)
     {
         new VersionAndGreet();
+        new InformHowBehave();
         boolean flag = true;
         while(flag)
         {
-            new InformHowBehave();
             int choice = 0;
             Scanner scan = new Scanner(System.in);
             try
@@ -41,8 +41,9 @@ public class Main
                     new CheckLongTermWeatherForecast();
                 case 5:
                     new Gui();
-                    break; // TODO Check if this break statement is needed
+                    break;
                 default:
+                    scan.close();
                     flag = false;
                     break;
             }
