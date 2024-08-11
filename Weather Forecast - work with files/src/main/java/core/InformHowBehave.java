@@ -1,9 +1,7 @@
 package core;
 
-public class InformHowBehave
-{
-    InformHowBehave()
-    {
+public class InformHowBehave {
+    InformHowBehave() {
         System.out.println("Aby pobrać obecne dane pogodowe wciśnij 1.");
         System.out.println("Aby pobrać krótkoterminową prognozę pogody wciśnij 2.");
         System.out.println("Aby pobrać długoterminową prognozę pogody wciśnij 3.");

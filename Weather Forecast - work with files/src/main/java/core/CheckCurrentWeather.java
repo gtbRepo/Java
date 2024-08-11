@@ -47,7 +47,7 @@ public class CheckCurrentWeather
         {
             e.printStackTrace();
         } catch (InterruptedException e) {
-            throw new RuntimeException(e); // TODO add my message
+            throw new RuntimeException(e);
         }
     }
 }

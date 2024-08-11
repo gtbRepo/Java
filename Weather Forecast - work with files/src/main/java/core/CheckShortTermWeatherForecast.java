@@ -52,7 +52,8 @@ public class CheckShortTermWeatherForecast
 
                 new WriteDataToFile(shortForecastName, rawForecastData, true);
 
-                Thread.sleep(7000); //TODO change position of this method
+                Thread.sleep(7000);
+                //TODO change position of this method
             }
         }
         catch(IOException e)

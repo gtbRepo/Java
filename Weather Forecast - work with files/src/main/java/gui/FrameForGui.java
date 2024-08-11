@@ -6,6 +6,7 @@ import java.awt.*;
 public class FrameForGui extends JFrame {
     JButton button;
     JLabel label;
+
     FrameForGui() {
         label = new JLabel();
 

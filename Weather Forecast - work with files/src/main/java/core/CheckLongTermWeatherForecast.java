@@ -61,7 +61,8 @@ public class CheckLongTermWeatherForecast
 
                 new WriteDataToFile(longForecastName, rawForecastData, true);
 
-                Thread.sleep(7000); //TODO Add sleep.java class with sleep class and try catch statement
+                Thread.sleep(7000);
+                //TODO Add sleep.java class with sleep class and try catch statement
             }
         }
         catch(IOException e)
