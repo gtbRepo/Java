@@ -1,9 +1,15 @@
 package core;
 
 import java.util.Scanner;
+
+import CheckWeather.CheckCurrentWeather;
+import CheckWeather.CheckLongTermWeatherForecast;
+import CheckWeather.CheckShortTermWeatherForecast;
 import gui.Gui;
 
 //TODO upgrade gui;
+//TODO Change site to site without rate limits
+//Try this https://meteo.imgw.pl/pogoda?lat=50.049686&lon=19.955626
 
 
 public class Main
@@ -16,14 +22,14 @@ public class Main
         while(flag)
         {
             int choice = 0;
-            Scanner scan = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             try
             {
-                choice = scan.nextInt();
+                choice = scanner.nextInt();
             }
             catch (java.util.InputMismatchException e)
             {
-                scan.nextLine();
+                scanner.nextLine();
             }
             switch (choice)
             {
@@ -44,7 +50,7 @@ public class Main
                     new Gui();
                     break;
                 default:
-                    scan.close();
+                    scanner.close();
                     flag = false;
                     break;
             }

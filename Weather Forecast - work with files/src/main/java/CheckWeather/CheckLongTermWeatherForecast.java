@@ -1,11 +1,10 @@
-package core;
+package CheckWeather;
 
 // Klasa stworzona z wykorzystaniem komponentu jsoup ze strony https://mvnrepository.com/artifact/org.jsoup/jsoup
 // na licencji MIT: https://mit-license.org
 // Data odczytu [9 listopada 2021]
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import core.WriteDataToFile;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
@@ -19,25 +18,30 @@ public class CheckLongTermWeatherForecast
             System.out.println("Długoterminowa prognoza dla Krakowa: \n");
             for(int counter = 0; counter < 44; counter++)
             {
-                Document longTermForecastWeatherDocumentInteria = Jsoup.
-                        connect("https://pogoda.interia.pl/prognoza-dlugoterminowa-krakow,cId,4970").get();
-
-                Elements nameOfTheDay = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("day");
-                Elements specificDate = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("date");
-                Elements temperature = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-forecast-temp");
-                Elements cloudsPercentage = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-cloudy-cloudy-value");
-                Elements windAverageSpeed = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-wind-value");
-                Elements windMaxSpeed = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-wind-hit");
-                Elements amountOfRainfall = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-precipitation-value");
-                Elements sunyHours = longTermForecastWeatherDocumentInteria.
-                        getElementsByClass("weather-forecast-longterm-list-entry-pressure-value");
+                Elements nameOfTheDay =
+                        new GetElementByClass("day")
+                                .getElements();
+                Elements specificDate =
+                        new GetElementByClass("date")
+                                .getElements();
+                Elements temperature =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-forecast-temp")
+                                .getElements();
+                Elements cloudsPercentage =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-cloudy-cloudy-value")
+                                .getElements();
+                Elements windAverageSpeed =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-wind-value")
+                                .getElements();
+                Elements windMaxSpeed =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-wind-hit")
+                                .getElements();
+                Elements amountOfRainfall =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-precipitation-value")
+                                .getElements();
+                Elements sunyHours =
+                        new GetElementByClass("weather-forecast-longterm-list-entry-pressure-value")
+                                .getElements(); // is it really correct? pressure value??
 
                 System.out.println(nameOfTheDay.get(counter).text()
                         + ", " + specificDate.get(counter + 1).text() // dzięki dodaniu 1 do licznika podaje poprawną datę
@@ -61,8 +65,7 @@ public class CheckLongTermWeatherForecast
 
                 new WriteDataToFile(longForecastName, rawForecastData, true);
 
-                Thread.sleep(7000);
-                //TODO Add sleep.java class with sleep class and try catch statement
+                Thread.sleep(500);
             }
         }
         catch(IOException e)

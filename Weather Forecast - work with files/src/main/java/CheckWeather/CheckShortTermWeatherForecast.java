@@ -1,9 +1,10 @@
-package core;
+package CheckWeather;
 
 // Klasa stworzona z wykorzystaniem komponentu jsoup ze strony https://mvnrepository.com/artifact/org.jsoup/jsoup
 // na licencji MIT: https://mit-license.org
 // Data odczytu [9 listopada 2021]
 
+import core.WriteDataToFile;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -18,21 +19,25 @@ public class CheckShortTermWeatherForecast
         {
             System.out.println("Krótkoterminowa prognoza dla Krakowa: \n");
             for (int counter = 0; counter < 24; counter++) {
-                Document shortTermForecastWeatherDocumentInteria = Jsoup.
-                        connect("https://pogoda.interia.pl/prognoza-szczegolowa-krakow,cId,4970").get();
 
-                Elements getHour = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("hour");
-                Elements temperature = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("forecast-temp");
-                Elements cloudsPercentage = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("entry-precipitation-value cloud-cover");
-                Elements windAverageSpeed = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("speed-value");
-                Elements windMaxSpeed = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("wind-hit");
-                Elements amountOfRainfall = shortTermForecastWeatherDocumentInteria.
-                        getElementsByClass("entry-precipitation-value rain");
+                Elements getHour =
+                        new GetElementByClass("hour")
+                                .getElements();
+                Elements temperature  =
+                        new GetElementByClass("forecast-temp")
+                                .getElements();
+                Elements cloudsPercentage =
+                        new GetElementByClass("entry-precipitation-value cloud-cover")
+                                .getElements();
+                Elements windAverageSpeed =
+                        new GetElementByClass("speed-value")
+                                .getElements();
+                Elements windMaxSpeed =
+                        new GetElementByClass("wind-hit")
+                                .getElements();
+                Elements amountOfRainfall =
+                        new GetElementByClass("entry-precipitation-value rain")
+                                .getElements();
 
                 System.out.println("Godzina " + getHour.get(counter).text()
                         + " 00. Prognozowana temperatura: " + temperature.get(counter).text()
@@ -52,8 +57,7 @@ public class CheckShortTermWeatherForecast
 
                 new WriteDataToFile(shortForecastName, rawForecastData, true);
 
-                Thread.sleep(7000);
-                //TODO change position of this method
+                Thread.sleep(500);
             }
         }
         catch(IOException e)

@@ -12,7 +12,6 @@ public class WriteDataToFile {
         PrintWriter pw = new PrintWriter(fw); //created a PrintWriter object called pw
 
         pw.println(meteoForecast);
-
         pw.close();
     }
 }
