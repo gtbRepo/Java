@@ -1,51 +1,44 @@
 package CheckWeather;
 
-// Klasa stworzona z wykorzystaniem komponentu jsoup ze strony https://mvnrepository.com/artifact/org.jsoup/jsoup
-// na licencji MIT: https://mit-license.org
-// Data odczytu [9 listopada 2021]
-
 import core.WriteDataToFile;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
-public class CheckShortTermWeatherForecast
-{
-    public CheckShortTermWeatherForecast()
-    {
-        System.out.println("Proszę czekać trwa wczytywanie szczegółowej prognozy pogody.\n");
-        try
-        {
-            System.out.println("Krótkoterminowa prognoza dla Krakowa: \n");
-            for (int counter = 0; counter < 24; counter++) {
+public class CheckShortTermWeatherForecast {
+    private String cityName = "Cracow";
+    private final int countTo = 24;
+    public CheckShortTermWeatherForecast() {
+        System.out.println("Please wait. Loading detailed weather Forecast\n");
+        try {
+            System.out.println("Shortterm forecast for city: " + cityName + "\n");
+            for (int counter = 0; counter < countTo; counter++) {
 
                 Elements getHour =
-                        new GetElementByClass("hour")
+                        new ElementByClass("hour")
                                 .getElements();
                 Elements temperature  =
-                        new GetElementByClass("forecast-temp")
+                        new ElementByClass("forecast-temp")
                                 .getElements();
                 Elements cloudsPercentage =
-                        new GetElementByClass("entry-precipitation-value cloud-cover")
+                        new ElementByClass("entry-precipitation-value cloud-cover")
                                 .getElements();
                 Elements windAverageSpeed =
-                        new GetElementByClass("speed-value")
+                        new ElementByClass("speed-value")
                                 .getElements();
                 Elements windMaxSpeed =
-                        new GetElementByClass("wind-hit")
+                        new ElementByClass("wind-hit")
                                 .getElements();
                 Elements amountOfRainfall =
-                        new GetElementByClass("entry-precipitation-value rain")
+                        new ElementByClass("entry-precipitation-value rain")
                                 .getElements();
 
-                System.out.println("Godzina " + getHour.get(counter).text()
-                        + " 00. Prognozowana temperatura: " + temperature.get(counter).text()
-                        + ". \nStopień zachmurzenia: " + cloudsPercentage.get(counter).text()
-                        + ". Średnia prędkość wiatru: " + windAverageSpeed.get(counter).text() + " km/h"
-                        + ". \nPorywy wiatru do prędkości: " + windMaxSpeed.get(counter).text()
-                        + ". Przewidywane opady: " + amountOfRainfall.get(counter).text()
-                        + ".\n");
+                System.out.println("Hour " + getHour.get(counter).text()
+                        + " 00. Forecast temparature: " + temperature.get(counter).text()
+                        + ". \n Cloudiness: " + cloudsPercentage.get(counter).text()
+                        + ". Average wind speed: " + windAverageSpeed.get(counter).text() + " km/h"
+                        + ". \nWind hits: " + windMaxSpeed.get(counter).text()
+                        + ". Forecasted amount of rain: " + amountOfRainfall.get(counter).text()
+                        + "(" + (counter+1) + "/" + countTo + ")" + ".\n");
 
                 String shortForecastName = "forecast24h.txt";
                 String rawForecastData = getHour.get(counter).text() + " "
@@ -60,12 +53,10 @@ public class CheckShortTermWeatherForecast
                 Thread.sleep(500);
             }
         }
-        catch(IOException e)
-        {
+        catch(IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 }
-

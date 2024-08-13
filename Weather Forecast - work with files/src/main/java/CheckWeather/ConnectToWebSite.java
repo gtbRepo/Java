@@ -1,11 +1,15 @@
 package CheckWeather;
 
+import lombok.Getter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class ConnectToWebSite {
+    @Getter
     private final Document currentWeatherDocument;
+    private final String webSiteAddress =
+            "https://pogoda.interia.pl/prognoza-szczegolowa-krakow,cId,4970";
     public ConnectToWebSite() {
         try {
             Thread.sleep(500); //TODO Change to site without rate limits
@@ -15,13 +19,9 @@ public class ConnectToWebSite {
             //Check api: https://danepubliczne.imgw.pl/pl/apiinfo <-probably the best
 
             currentWeatherDocument = Jsoup.
-                        connect("https://pogoda.interia.pl/prognoza-szczegolowa-krakow,cId,4970").get();
+                        connect(webSiteAddress).get();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public Document getCurrentWeatherDocument() {
-        return currentWeatherDocument;
     }
 }

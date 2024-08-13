@@ -3,11 +3,10 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class FrameForGui extends JFrame {
-    JButton button;
-    JLabel label;
-
-    FrameForGui() {
+public class MyGui extends JFrame {
+    private final JButton button;
+    private final JLabel label;
+    public MyGui() {
         label = new JLabel();
 
         label.setText("test text");
@@ -30,7 +29,12 @@ public class FrameForGui extends JFrame {
         this.setLayout(null);
         this.setSize(500, 500);
         this.setVisible(true);
+        this.setTitle("Weather forecast application");
         this.add(button);
         this.add(label);
+
+        ImageIcon imageIcon = new ImageIcon("sun.png");
+        this.setIconImage(imageIcon.getImage());
+        this.getContentPane().setBackground(new Color(123,50,250));
     }
 }

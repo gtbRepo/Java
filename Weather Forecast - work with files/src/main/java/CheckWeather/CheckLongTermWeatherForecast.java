@@ -8,39 +8,37 @@ import core.WriteDataToFile;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
-public class CheckLongTermWeatherForecast
-{
-    public CheckLongTermWeatherForecast()
-    {
-        System.out.println("Proszę czekać trwa wczytywanie długoterminowej progrnozy pogody.\n");
-        try
-        {
-            System.out.println("Długoterminowa prognoza dla Krakowa: \n");
-            for(int counter = 0; counter < 44; counter++)
-            {
+public class CheckLongTermWeatherForecast {
+    private String cityName = "Cracow";
+    private final int countTo = 44;
+    public CheckLongTermWeatherForecast() {
+        System.out.println("Please wait. Loading detailed weather Forecast\n");
+        try {
+            System.out.println("Longterm forecast for the city: " + cityName + "\n");
+            for(int counter = 0; counter < countTo; counter++) {
                 Elements nameOfTheDay =
-                        new GetElementByClass("day")
+                        new ElementByClass("day")
                                 .getElements();
                 Elements specificDate =
-                        new GetElementByClass("date")
+                        new ElementByClass("date")
                                 .getElements();
                 Elements temperature =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-forecast-temp")
+                        new ElementByClass("weather-forecast-longterm-list-entry-forecast-temp")
                                 .getElements();
                 Elements cloudsPercentage =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-cloudy-cloudy-value")
+                        new ElementByClass("weather-forecast-longterm-list-entry-cloudy-cloudy-value")
                                 .getElements();
                 Elements windAverageSpeed =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-wind-value")
+                        new ElementByClass("weather-forecast-longterm-list-entry-wind-value")
                                 .getElements();
                 Elements windMaxSpeed =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-wind-hit")
+                        new ElementByClass("weather-forecast-longterm-list-entry-wind-hit")
                                 .getElements();
                 Elements amountOfRainfall =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-precipitation-value")
+                        new ElementByClass("weather-forecast-longterm-list-entry-precipitation-value")
                                 .getElements();
                 Elements sunyHours =
-                        new GetElementByClass("weather-forecast-longterm-list-entry-pressure-value")
+                        new ElementByClass("weather-forecast-longterm-list-entry-pressure-value")
                                 .getElements(); // is it really correct? pressure value??
 
                 System.out.println(nameOfTheDay.get(counter).text()
@@ -51,7 +49,7 @@ public class CheckLongTermWeatherForecast
                         + ". \nPorywy wiatru do prędkości: " + windMaxSpeed.get(counter).text()
                         + ". \nPrzewidywane opady: " + amountOfRainfall.get(counter).text()
                         + ". \nPrzewidywana liczba słonecznych godzin: " + sunyHours.get(counter).text()
-                        + ".\n");
+                        + "(" + (counter+1) + "/" + countTo + ")" + ".\n");
 
                 String longForecastName = "forecastLong.txt";
                 String rawForecastData = nameOfTheDay.get(counter).text() + " "

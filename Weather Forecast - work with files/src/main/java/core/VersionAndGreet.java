@@ -3,7 +3,7 @@ package core;
 public class VersionAndGreet {
    VersionAndGreet() {
        String programName = "Weather forecast";
-       String programVersion = "1.2.1";
+       String programVersion = "1.3.0";
        System.out.println("\nProgram " + programName + " wersja " + programVersion);
        System.out.println("\nPragnę zaprezentować aplikację do pobierania danych meteorologicznych");
        System.out.println("z przykładowej strony internetowej.");
