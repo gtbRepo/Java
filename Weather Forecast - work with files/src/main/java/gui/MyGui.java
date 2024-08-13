@@ -16,9 +16,7 @@ public class MyGui extends JFrame {
 
         button = new JButton();
         button.setBounds(150, 300, 175, 50);
-        button.addActionListener(e -> {
-            label.setVisible(true);
-        });
+        button.addActionListener(e -> label.setVisible(true));
         button.setText("Exit button");
         button.setFocusable(false);
         button.setForeground(Color.green);

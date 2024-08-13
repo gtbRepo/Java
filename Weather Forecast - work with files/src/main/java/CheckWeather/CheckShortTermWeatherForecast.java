@@ -5,7 +5,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class CheckShortTermWeatherForecast {
-    private String cityName = "Cracow";
+    private final String cityName = "Cracow";
     private final int countTo = 24;
     public CheckShortTermWeatherForecast() {
         System.out.println("Please wait. Loading detailed weather Forecast\n");

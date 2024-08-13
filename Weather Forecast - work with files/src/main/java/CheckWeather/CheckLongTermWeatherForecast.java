@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class CheckLongTermWeatherForecast {
-    private String cityName = "Cracow";
+    private final String cityName = "Cracow";
     private final int countTo = 44;
     public CheckLongTermWeatherForecast() {
         System.out.println("Please wait. Loading detailed weather Forecast\n");
