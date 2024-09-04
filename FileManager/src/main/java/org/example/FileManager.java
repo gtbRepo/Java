@@ -1,8 +1,6 @@
 package org.example;
 
 import java.io.File;
-import java.util.Comparator;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Stream;
 

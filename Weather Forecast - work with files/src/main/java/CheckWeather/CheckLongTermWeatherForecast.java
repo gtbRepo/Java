@@ -66,8 +66,7 @@ public class CheckLongTermWeatherForecast {
                 Thread.sleep(500);
             }
         }
-        catch(IOException e)
-        {
+        catch(IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
